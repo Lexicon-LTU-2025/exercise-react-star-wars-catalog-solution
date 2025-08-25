@@ -9,9 +9,7 @@ export const App = () => {
   const [characters, setCharacters] = useState<ICharacter[]>([]);
 
   useEffect(() => {
-    fetchCharacters().then((data) => {
-      // setCharacters(data);
-    });
+    fetchCharacters().then((data) => setCharacters(data));
   }, []);
 
   return (
