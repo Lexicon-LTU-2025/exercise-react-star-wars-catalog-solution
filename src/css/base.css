@@ -5,6 +5,10 @@
   margin: 0;
 }
 
+html {
+  --main-color: #ffe81f;
+}
+
 body {
   background-image: url('../assets/star-wars-background.png');
   background-position: center;
@@ -12,8 +16,12 @@ body {
   height: 100vh;
 }
 
-h1 {
-  color: #ffe81f;
+h1,
+h2 {
+  color: var(--main-color);
   font-family: 'Russo One', sans-serif;
+}
+
+h1 {
   font-size: 4rem;
 }
