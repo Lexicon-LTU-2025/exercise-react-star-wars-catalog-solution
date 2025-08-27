@@ -7,9 +7,13 @@ import { PageSize } from '../constants';
 
 interface CharacterListProps {
   characters: ICharacter[];
+  onCharacterClick: (character: ICharacter) => void;
 }
 
-export const CharacterList = ({ characters }: CharacterListProps): ReactElement => {
+export const CharacterList = ({
+  characters,
+  onCharacterClick,
+}: CharacterListProps): ReactElement => {
   const [page, setPage] = useState<number>(0);
   const pageCount: number = Math.ceil(characters.length / PageSize);
   const loading: boolean = characters.length === 0;
@@ -22,7 +26,9 @@ export const CharacterList = ({ characters }: CharacterListProps): ReactElement 
 
     const start = page * PageSize;
     const end = start + PageSize;
-    return characters.map((c) => <Character character={c} key={c.id} />).slice(start, end);
+    return characters
+      .map((c) => <Character character={c} key={c.id} onCharacterClick={onCharacterClick} />)
+      .slice(start, end);
   };
 
   return (

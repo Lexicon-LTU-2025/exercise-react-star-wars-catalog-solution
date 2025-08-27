@@ -11,3 +11,16 @@ export interface ICharacter {
   birth_year: string;
   species_id: number;
 }
+
+export interface IHomeworld {
+  id: number;
+  climate: string;
+  surface_water: string;
+  name: string;
+  diameter: string;
+  rotation_period: string;
+  terrain: string;
+  gravity: string;
+  orbital_period: string;
+  population: string;
+}

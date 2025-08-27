@@ -3,6 +3,9 @@
 
 @import url('./App.css');
 @import url('./Character.css');
+@import url('./CharacterInfo.css');
+@import url('./CharacterDetails.css');
+@import url('./CharacterHomeworld.css');
 @import url('./CharacterList.css');
 @import url('./CustomButton.css');
 @import url('./CustomIcon.css');
