@@ -1,11 +1,9 @@
-#charcters-list header h2 {
-  text-align: center;
+#charcters-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-#charcters-list .characters {
-  padding-top: 1rem;
-
-  /* display: flex;
-  flex-direction: column;
-  gap: 0.5rem; */
+#charcters-list header h2 {
+  text-align: center;
 }

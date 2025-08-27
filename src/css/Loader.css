@@ -4,6 +4,10 @@
   justify-content: center;
 }
 
+.loader-wrapper.small .loader {
+  width: 30px;
+}
+
 .loader-wrapper .loader {
   width: 50px;
   aspect-ratio: 1;

@@ -1,25 +1,43 @@
-import type { ReactElement, ReactNode } from 'react';
+import { useState, type ReactElement, type ReactNode } from 'react';
 import type { ICharacter } from '../types';
 import { Loader } from './Loader';
 import { Character } from './Character';
+import { Pagination } from './Pagination';
+import { PageSize } from '../constants';
 
 interface CharacterListProps {
   characters: ICharacter[];
 }
 
 export const CharacterList = ({ characters }: CharacterListProps): ReactElement => {
-  const renderCharacters = (): ReactNode => {
-    if (!characters.length) return <Loader />;
+  const [page, setPage] = useState<number>(0);
+  const pageCount: number = Math.ceil(characters.length / PageSize);
+  const loading: boolean = characters.length === 0;
 
-    return characters.map((c) => <Character character={c} key={c.id} />).slice(0, 10);
+  const handleOnNext = () => setPage((previous) => Math.min(previous + 1, pageCount - 1));
+  const handleOnPrevious = () => setPage((previous) => Math.max(previous - 1, 0));
+
+  const renderCharacters = (): ReactNode => {
+    if (loading) return <Loader />;
+
+    const start = page * PageSize;
+    const end = start + PageSize;
+    return characters.map((c) => <Character character={c} key={c.id} />).slice(start, end);
   };
 
   return (
-    <section id="charcters-list" className='g-card'>
+    <section id="charcters-list" className="g-card">
       <header>
         <h2>Character List</h2>
       </header>
       <div className="characters">{renderCharacters()}</div>
+      <Pagination
+        currentPage={page + 1}
+        loading={loading}
+        next={handleOnNext}
+        pageCount={pageCount}
+        previous={handleOnPrevious}
+      />
     </section>
   );
 };
