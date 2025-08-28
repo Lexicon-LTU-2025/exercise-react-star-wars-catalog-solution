@@ -5,3 +5,9 @@
   padding-block: 1rem;
   width: 350px;
 }
+
+.g-flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

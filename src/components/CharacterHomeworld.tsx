@@ -1,11 +1,31 @@
 import type { ReactElement } from 'react';
 import type { IHomeworld } from '../types';
+import { Loader } from './Loader';
 
 interface ICharacterDetailsProps {
-  homeworld: IHomeworld;
+  homeworld?: IHomeworld;
+  isLoading: boolean;
 }
 
-export const CharacterHomeworld = ({ homeworld }: ICharacterDetailsProps): ReactElement => {
+export const CharacterHomeworld = (props: ICharacterDetailsProps): ReactElement => {
+  const { isLoading, homeworld } = props;
+
+  if (isLoading) {
+    return (
+      <article className="character-homeworld isLoading">
+        <Loader />
+      </article>
+    );
+  }
+
+  if (!homeworld) {
+    return (
+      <article className="character-homeworld g-flex-center">
+        <p>No homeworld selected..</p>
+      </article>
+    );
+  }
+
   const { name, rotation_period, orbital_period, diameter, climate, gravity, terrain } = homeworld;
 
   return (

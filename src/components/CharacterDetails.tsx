@@ -2,10 +2,19 @@ import type { ReactElement } from 'react';
 import type { ICharacter } from '../types';
 
 interface ICharacterDetailsProps {
-  character: ICharacter;
+  character?: ICharacter;
 }
 
 export const CharacterDetails = ({ character }: ICharacterDetailsProps): ReactElement => {
+  
+  if (!character) {
+    return (
+      <article className="character-details g-flex-center">
+        <p>No character selected..</p>
+      </article>
+    );
+  }
+
   const { name, height, mass, hair_color, skin_color, eye_color, birth_year, gender } = character;
 
   return (

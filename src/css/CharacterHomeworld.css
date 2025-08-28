@@ -1,5 +1,12 @@
 .character-homeworld {
+  border-top: 1px solid var(--main-color);
   flex: 1;
+  padding: 1rem;
+}
+
+.character-homeworld.isLoading {
+  display: flex;
+  justify-content: center;
 }
 
 .character-homeworld h3 {

@@ -1,5 +1,7 @@
 .character-details {
+  border-bottom: 1px solid var(--main-color);
   flex: 1;
+  padding: 1rem
 }
 
 .character-details h3 {
