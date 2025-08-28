@@ -1,4 +1,20 @@
 #app #main-content {
   display: flex;
-  justify-content: space-around;
+  gap: 10rem;
+  justify-content: center;
+}
+
+@media screen and (max-width: 1024px) {
+  #app #main-content {
+    padding-inline: 2rem;
+    padding-bottom: 4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #app #main-content {
+    align-items: center;
+    gap: 2rem;
+    flex-direction: column;
+  }
 }
